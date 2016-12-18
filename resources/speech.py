@@ -9,3 +9,9 @@ Type 'quit' to exit."
 def cannot_understand():
 	return "\
 Sorry, I didn't undertand your request."
+
+def weather(data):
+	return "\
+Weather in %s is %s.\n\
+Current temperature is %s, with minimum %s and maximum is %s.\n\
+Humidity is %s and atmospheric pressure is %s."%(data['city'], data['weather_desc'], data['temp'], data['temp_min'], data['temp_max'], data['humidity'], data['pressure'])
