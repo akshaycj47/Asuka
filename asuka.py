@@ -3,6 +3,7 @@
 import sys
 import commands.google
 import commands.joke
+import commands.stock
 import commands.weather
 import resources.speech
 
@@ -25,6 +26,8 @@ class Asuka(object):
             'google' : commands.google.google,
             'joke'   : commands.joke.joke,
             'jokes'  : commands.joke.joke,
+            'stock'  : commands.stock.stock,
+            'stocks' : commands.stock.stock,
             'weather': commands.weather.weather
         }
 
