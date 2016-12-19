@@ -15,7 +15,7 @@ def weather(data):
 Weather in %s is %s.\n\
 Current temperature is %s, with minimum %s and maximum is %s.\n\
 Humidity is %s and atmospheric pressure is %s.\n\
-Sunrise is at %s and sunset is at %s (%s)"%(data['city'], data['weather_desc'], data['temp'], data['temp_min'], data['temp_max'], data['humidity'], data['pressure'], data['sunrise'], data['sunset'], data['timezone'])
+Sunrise is at %s and sunset is at %s (%s)."%(data['city'], data['weather_desc'], data['temp'], data['temp_min'], data['temp_max'], data['humidity'], data['pressure'], data['sunrise'], data['sunset'], data['timezone'])
 
 """
 Function that returns response for correct stock request
@@ -29,7 +29,7 @@ Function that returns response for correct stock request
 """
 def stock(data):
 	return "\
-Stock %s:%s has value %s (%s, %s%%)"%(data['stock_exchange'], data['ticker_symbol'], data['stock_value'], data['stock_change'], data['stock_change_pc'])
+Stock %s:%s has value %s (%s, %s%%)."%(data['stock_exchange'], data['ticker_symbol'], data['stock_value'], data['stock_change'], data['stock_change_pc'])
 
 """
 Function that responds to incorrect stock request
@@ -49,4 +49,5 @@ Function that responds to stock request for which there is no information availa
 """
 def stock_no_info(ticker_symbol):
 	return "\
-I could not find and stock information for %s"%(ticker_symbol)
+I could not find and stock information for %s\n\
+Perhaps use stock exchange name as a prefix."%(ticker_symbol)
