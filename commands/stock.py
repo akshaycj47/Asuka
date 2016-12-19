@@ -33,7 +33,6 @@ Function which obtains stock prices for a given stock_value using Google Finance
 may contain stock name or both stock name and stock exchange
 """
 def stock(string):
-
 	ticker_symbol = ""
 	if re.match("^.+\s([A-Z]+:[A-Z]+).*$", string):
 		re_stock = re.match("^.+\s([A-Z]+:[A-Z]+).*$", string)
