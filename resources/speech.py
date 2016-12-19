@@ -17,6 +17,18 @@ Current temperature is %s, with minimum %s and maximum is %s.\n\
 Humidity is %s and atmospheric pressure is %s.\n\
 Sunrise is at %s and sunset is at %s (%s)."%(data['city'], data['weather_desc'], data['temp'], data['temp_min'], data['temp_max'], data['humidity'], data['pressure'], data['sunrise'], data['sunset'], data['timezone'])
 
+def weather_incorrect_request():
+	return"\
+Sorry, I didn't undestand your request.\n\
+If you want to know the weather for a particular region, say:\n\
+Can you tell me the weather in 95630\n\
+What's the weather in \"San Francisco,us\""
+
+def weather_no_info():
+	return"\
+I could not find weather information for the given city.\n\
+Please enter the request correctly."
+
 """
 Function that returns response for correct stock request
 @param {object} data - Processed response for stock request
@@ -49,5 +61,5 @@ Function that responds to stock request for which there is no information availa
 """
 def stock_no_info(ticker_symbol):
 	return "\
-I could not find and stock information for %s\n\
+I could not find stock information for %s\n\
 Perhaps use stock exchange name as a prefix."%(ticker_symbol)
