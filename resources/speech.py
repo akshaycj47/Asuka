@@ -14,4 +14,8 @@ def weather(data):
 	return "\
 Weather in %s is %s.\n\
 Current temperature is %s, with minimum %s and maximum is %s.\n\
-Humidity is %s and atmospheric pressure is %s."%(data['city'], data['weather_desc'], data['temp'], data['temp_min'], data['temp_max'], data['humidity'], data['pressure'])
+Humidity is %s and atmospheric pressure is %s.\n\
+Sunrise is at %s and sunset is at %s (%s)"%(data['city'], data['weather_desc'], data['temp'], data['temp_min'], data['temp_max'], data['humidity'], data['pressure'], data['sunrise'], data['sunset'], data['timezone'])
+
+def stock(data):
+	return ""
