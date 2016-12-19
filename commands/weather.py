@@ -38,7 +38,7 @@ Function that gets local timezone id using Google Maps API
 @return {string} timezone id 
 """
 def get_local_timezone_id(timestamp, lat, lon):
-	response = unirest.get("https://maps.googleapis.com/maps/api/timezone/json?location=%s,%s&timestamp=%s&key=AIzaSyAhSNGhwvaBBZdrxcaiUFxGwGjT2a38pzg"%(lat, lon, timestamp))
+	response = unirest.get("https://maps.googleapis.com/maps/api/timezone/json?location=%s,%s&timestamp=%s&key=%s"%(lat, lon, timestamp, app_id['google_map']))
 	return response.body['timeZoneId']
 
 """
@@ -49,7 +49,7 @@ Function that gets local timezone name using Google Maps API
 @return {string} timezone name 
 """
 def get_local_timezone_name(timestamp, lat, lon):
-	response = unirest.get("https://maps.googleapis.com/maps/api/timezone/json?location=%s,%s&timestamp=%s&key=AIzaSyAhSNGhwvaBBZdrxcaiUFxGwGjT2a38pzg"%(lat, lon, timestamp))
+	response = unirest.get("https://maps.googleapis.com/maps/api/timezone/json?location=%s,%s&timestamp=%s&key=%s"%(lat, lon, timestamp, app_id['google_map']))
 	return response.body['timeZoneName']
 
 """
@@ -73,7 +73,7 @@ def unix_to_local_time(unix_time, lat, lon):
 	from_zone      = tz.gettz('UTC')
 	to_zone        = tz.gettz(local_timezone)
 	utc = datetime.strptime(str(unix_to_utc(unix_time)), '%Y-%m-%d %H:%M:%S')
-	
+
 	# Tell the datetime object that it's in UTC time zone since 
 	# datetime objects are 'naive' by default
 	utc = utc.replace(tzinfo=from_zone)
