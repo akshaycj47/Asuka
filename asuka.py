@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import sys
+import commands.calculate
 import commands.google
 import commands.joke
 import commands.stock
@@ -23,12 +24,13 @@ def console():
 class Asuka(object):
     def __init__(self):
         self.commands = {
-            'google' : commands.google.google,
-            'joke'   : commands.joke.joke,
-            'jokes'  : commands.joke.joke,
-            'stock'  : commands.stock.stock,
-            'stocks' : commands.stock.stock,
-            'weather': commands.weather.weather
+            'calculate': commands.calculate.calculate,
+            'google'   : commands.google.google,
+            'joke'     : commands.joke.joke,
+            'jokes'    : commands.joke.joke,
+            'stock'    : commands.stock.stock,
+            'stocks'   : commands.stock.stock,
+            'weather'  : commands.weather.weather
         }
 
     def process_commands(self, string):
