@@ -39,7 +39,7 @@ class Asuka(object):
         for word in string:
             if word in self.commands:
                 string = (' ').join(string)
-                self.commands[word](string)
+                print self.commands[word](string)
 
 def main():
 

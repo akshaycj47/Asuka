@@ -118,12 +118,11 @@ def weather(string):
 		re_weather = re.match("^.*\"([\w\s]+)\".*", string)
 		response = unirest.get("http://api.openweathermap.org/data/2.5/weather?q=%s&appid=%s"%(re_weather.group(1), app_id['openweathermap']))
 	else:
-		print resources.speech.weather_incorrect_request()
-		return
+		return resources.speech.weather_incorrect_request()
 
 	# Process information obtained form Open Weather API
 	data = process_weather_data(response)
 	if data['isValid'] == True:
-		print resources.speech.weather(data)
+		return resources.speech.weather(data)
 	else:
-		print resources.speech.weather_no_info()
+		return resources.speech.weather_no_info()

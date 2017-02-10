@@ -1,14 +1,14 @@
 import re
 
 def calculate(string):
-	expression = re.findall("\s([\s0-9\+\-\*\(\)\.]+)", string)
+	expression = re.findall("\s([\s0-9\+\-\*\/\(\)\.]+)", string)
 	if not expression:
-		print "I can't calculate that"
+		return "I can't calculate that"
 	expression = expression[0]
 
 	# Evaluate the expression
 	try:
-		print eval(expression)
+		calculation = eval(expression)
+		return calculation
 	except:
-		print "I can't calculate that"
-		return
+		return "I can't calculate that"

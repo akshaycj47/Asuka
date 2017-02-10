@@ -8,6 +8,7 @@ Function that tells a random joke from a website database
 def joke(string):
 	try:
 		response = unirest.get("http://tambal.azurewebsites.net/joke/random")
-		print response.body['joke']
+		joke = response.body['joke']
+		return joke
 	except:
-		print "Could you be more specific?"
+		return "Could you be more specific?"

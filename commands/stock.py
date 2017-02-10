@@ -43,12 +43,11 @@ def stock(string):
 		ticker_symbol = re_stock.group(1)
 		response = unirest.get("http://finance.google.com/finance/info?client=ig&q=%s"%(ticker_symbol))
 	else:
-		print resources.speech.stock_incorrect_request()
-		return
+		return resources.speech.stock_incorrect_request()
 	
 	# Process information obtained from Google Finance API
 	data = process_stock_data(response)
 	if data['isValid']:
-		print resources.speech.stock(data)
+		return resources.speech.stock(data)
 	else:
-		print resources.speech.stock_no_info(ticker_symbol)
+		return resources.speech.stock_no_info(ticker_symbol)
