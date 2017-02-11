@@ -30,6 +30,12 @@ class TestGoogle(unittest.TestCase):
     def test_incorrect_request(self):
         self.assertEqual(commands.google.google('google Lake Tahoe'), "I could not understand your request.")
 
+class TestJoke(unittest.TestCase):
+
+    def test_correct_request(self):
+        self.assertFalse(commands.joke.joke('tell me a joke please') == "Could you be more specific?")
+        self.assertFalse(commands.joke.joke('do you know a few jokes') == "Could you be more specific?")
+
 
 
 if __name__ == '__main__':
