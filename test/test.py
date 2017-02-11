@@ -36,7 +36,16 @@ class TestJoke(unittest.TestCase):
         self.assertFalse(commands.joke.joke('tell me a joke please') == "Could you be more specific?")
         self.assertFalse(commands.joke.joke('do you know a few jokes') == "Could you be more specific?")
 
+class TestStock(unittest.TestCase):
 
+    def test_correct_request(self):
+        self.assertTrue(re.match('Stock\s.+\shas value .+', commands.stock.stock('stock for INTC')))
+        self.assertTrue(re.match('Stock\s.+\shas value .+', commands.stock.stock('stock for NASDAQ:GOOGL')))
+        self.assertTrue(re.match('Stock\s.+\shas value .+', commands.stock.stock('stock for NYSE:IBM')))
+        self.assertTrue(re.match('Stock\s.+\shas value .+', commands.stock.stock('stock for NSE:IDBI')))
+    def test_incorrect_request(self):
+        self.assertTrue(re.search('Perhaps use stock exchange name as a prefix', commands.stock.stock('stock for IDBI')))
+        self.assertTrue(re.search('Sorry, I didn\'t understand your request', commands.stock.stock('stock for Apple')))
 
 if __name__ == '__main__':
     unittest.main()
