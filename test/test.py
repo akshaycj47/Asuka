@@ -1,9 +1,12 @@
 import unittest
+import re
 import sys
 sys.path.insert(0, '../')
 
-import resources.speech
 import commands.calculate
+import commands.google
+import commands.joke
+import commands.stock
 
 class TestCalculate(unittest.TestCase):
 
@@ -18,7 +21,16 @@ class TestCalculate(unittest.TestCase):
     def test_mixed_expression(self):
         self.assertEqual(commands.calculate.calculate('calculate 2+12/2-5*2'), -2)
     def test_mixed_expression_with_parantheses(self):
-        self.assertEqual(commands.calculate.calculate('calculate (2+12)/2-5*2'), -3)    
+        self.assertEqual(commands.calculate.calculate('calculate (2+12)/2-5*2'), -3)
+
+class TestGoogle(unittest.TestCase):
+
+    def test_correct_request(self):
+        self.assertEqual(commands.google.google('google "Hello world!"'), "Searching for Hello world! on a new browser window.")
+    def test_incorrect_request(self):
+        self.assertEqual(commands.google.google('google Lake Tahoe'), "I could not understand your request.")
+
+
 
 if __name__ == '__main__':
     unittest.main()
