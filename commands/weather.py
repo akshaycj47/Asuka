@@ -114,8 +114,8 @@ def weather(string):
 	if re.match("^.*(\d{5}).*$", string):
 		re_weather = re.match("^.*(\d{5}).*$", string)
 		response = unirest.get("http://api.openweathermap.org/data/2.5/weather?zip=%s&appid=%s"%(re_weather.group(1), app_id['openweathermap']))
-	elif re.match("^.*\"([\w\s]+)\".*", string):
-		re_weather = re.match("^.*\"([\w\s]+)\".*", string)
+	elif re.match("^.*\"([\w\s,]+)\".*", string):
+		re_weather = re.match("^.*\"([\w\s,]+)\".*", string)
 		response = unirest.get("http://api.openweathermap.org/data/2.5/weather?q=%s&appid=%s"%(re_weather.group(1), app_id['openweathermap']))
 	else:
 		return resources.speech.weather_incorrect_request()
