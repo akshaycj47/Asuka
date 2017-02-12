@@ -48,4 +48,5 @@ You can ask Asuka to tell the current wearther of a location
 ```bash
 Asuka> what is the weather in "Anchorage"
 Asuka> weather in 95630
+Asuka> please tell me weather in "London,ca"
 ```
