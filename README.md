@@ -26,7 +26,7 @@ Asuka> calculate (4-6)/2*(3+1)
 You can ask Asuka to google anything for you
 ```bash
 Asuka> google "Hello world" for me
-Asuka>please google "python tools"
+Asuka> please google "python tools"
 ```
 
 ## Joke
