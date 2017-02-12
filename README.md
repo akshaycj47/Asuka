@@ -5,7 +5,7 @@ An intelligent personal assistant based on command line, that interprets user's 
 ```bash
 $ ./asuka.py
 ```
-After entering this, you get the Asuka console
+After entering this, you get the Asuka console.
 Some of the commands are given below
 
 ## Quit
