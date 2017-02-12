@@ -7,6 +7,7 @@ import commands.calculate
 import commands.google
 import commands.joke
 import commands.stock
+import commands.weather
 
 class TestCalculate(unittest.TestCase):
 
@@ -46,6 +47,17 @@ class TestStock(unittest.TestCase):
     def test_incorrect_request(self):
         self.assertTrue(re.search('Perhaps use stock exchange name as a prefix', commands.stock.stock('stock for IDBI')))
         self.assertTrue(re.search('Sorry, I didn\'t understand your request', commands.stock.stock('stock for Apple')))
+
+class TestWeather(unittest.TestCase):
+
+    def test_correct_request(self):
+        self.assertTrue(re.search('Current temperature is', commands.weather.weather('weather in "Folsom"')))
+        self.assertTrue(re.search('Current temperature is', commands.weather.weather('weather in 30318')))
+        self.assertTrue(re.search('Current temperature is', commands.weather.weather('weather in "London"')))
+        self.assertTrue(re.search('Eastern .+ Time', commands.weather.weather('weather in "London,ca"')))
+    def test_incorrect_request(self):
+        self.assertTrue(re.search('If you want to know the weather for a particular region', commands.weather.weather('weather in Toronto')))
+        self.assertTrue(re.search('I could not find weather information for the given city', commands.weather.weather('weather in "Wolololol"')))
 
 if __name__ == '__main__':
     unittest.main()
