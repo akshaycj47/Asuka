@@ -20,7 +20,7 @@ You can ask Asuka to calculate any arithmetic expression
 Asuka> calculate 5+7
 Asuka> calculate 12*3
 Asuka> calculate (4-6)/2*(3+1)
-```bash
+```
 
 ## Google
 You can ask Asuka to google anything for you
